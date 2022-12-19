@@ -7,6 +7,7 @@
   padding-top: 0px;
   margin-right: 8px;
   margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 .appointment-name-container {
   display: flex;
@@ -32,7 +33,7 @@
 .appointment-date {
   color: #b5b7c4;
   font-family: 'Roboto';
-  font-size: 16px;
+  font-size: 14px;
 
   margin-top: 0px;
 }

@@ -144,4 +144,9 @@
 .appointments-list-container {
   display: flex;
   list-style-type: none;
+  flex-wrap: wrap;
+}
+
+.active {
+  background-color: #8b5cf6;
 }
