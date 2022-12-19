@@ -1,8 +1,21 @@
 import {Component} from 'react'
+import AppointmentItems from '../AppointmentItem'
 import './index.css'
 
 class Appointments extends Component {
+  state = {title: '', date: '', appointmentList: [], isStared: false}
+
+  changeTitleInput = event => {
+    this.setState({title: event.target.value})
+  }
+
+  changeDate = event => {
+    this.setState({date: event.target.value})
+  }
+
   render() {
+    const {title, date} = this.state
+    console.log(title, date)
     return (
       <div className="app-container">
         <div className="appointment-container">
@@ -12,11 +25,25 @@ class Appointments extends Component {
               <label className="title-label" htmlFor="titleInput">
                 TITLE
               </label>
-              <input type="text" id="titleIinput" className="title-input" />
+
+              <input
+                type="text"
+                id="titleInput"
+                value={title}
+                placeholder="Title"
+                className="title-input"
+                onChange={this.changeTitleInput}
+              />
               <label className="date-label" htmlFor="dateInput">
                 DATE
               </label>
-              <input type="date" id="dateInput" className="date-input" />
+              <input
+                type="date"
+                id="dateInput"
+                value={date}
+                className="date-input"
+                onChange={this.changeDate}
+              />
               <button className="submit-button" type="submit">
                 Add
               </button>
@@ -34,21 +61,9 @@ class Appointments extends Component {
               Starred
             </button>
           </div>
-          <div className="appointments-list-container">
-            <div className="appointment-list-item">
-              <div className="appointment-name-container">
-                <p className="appointment-name">Dentist</p>
-                <button type="button" className="starred-item-button">
-                  <img
-                    src="https://assets.ccbp.in/frontend/react-js/appointments-app/star-img.png"
-                    className="star-img"
-                    alt="star"
-                  />
-                </button>
-              </div>
-              <p className="appointment-date">Date: 20 july 2021, Tuesday</p>
-            </div>
-          </div>
+          <ul className="appointments-list-container">
+            {<AppointmentItems />}
+          </ul>
         </div>
       </div>
     )
